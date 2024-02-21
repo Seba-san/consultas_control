@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirección de Discord</title>
+    <script type="text/javascript">
+        // Función para registrar la visita
+        function registrarVisita() {
+    var fechaHora = new Date().toISOString();
+
+    fetch('https://script.google.com/macros/s/AKfycbxhilzRTYLOm8_vCTAX-6qL40L9MspyxKgb3K_IbaFVTymdFSITuqRyR2qvQORlggLh/exec', {
+        method: 'POST',
+        mode: 'no-cors', // Importante para evitar problemas de CORS
+        body: JSON.stringify({fechaHora: fechaHora}),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(() => {
+        window.location.href = "https://discord.com/invite/YkYfjeqQ";
+    }).catch(error => console.error('Error:', error));
+}
+    </script>
+</head>
+<body onload="registrarVisita();">
+    <p>Redireccionando a Discord...</p>
+</body>
+</html>
+
