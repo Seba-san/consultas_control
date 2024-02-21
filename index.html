@@ -6,7 +6,6 @@
         // Función para registrar la visita
         function registrarVisita() {
     var fechaHora = new Date().toISOString();
-
     fetch('https://script.google.com/macros/s/AKfycbxhilzRTYLOm8_vCTAX-6qL40L9MspyxKgb3K_IbaFVTymdFSITuqRyR2qvQORlggLh/exec', {
         method: 'POST',
         mode: 'no-cors', // Importante para evitar problemas de CORS
@@ -15,7 +14,7 @@
             'Content-Type': 'application/json',
         },
     }).then(() => {
-        window.location.href = "https://discord.com/invite/YkYfjeqQ";
+        window.location.href = "https://discord.com/invite/7ZC4y3Jz9j"; // Link de invitacion discord
     }).catch(error => console.error('Error:', error));
 }
     </script>
