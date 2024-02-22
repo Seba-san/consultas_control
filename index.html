@@ -3,24 +3,32 @@
 <head>
     <title>Redirección de Discord</title>
     <script type="text/javascript">
+        // Función para "limpiar" los enlaces ofuscados
+        function limpiarEnlace(enlace) {
+            // Elimina el último carácter del enlace (el asterisco)
+            return enlace.slice(0, -1);
+        }
+
         // Función para registrar la visita
         function registrarVisita() {
-    var fechaHora = new Date().toISOString();
-    fetch('https://script.google.com/macros/s/AKfycbxhilzRTYLOm8_vCTAX-6qL40L9MspyxKgb3K_IbaFVTymdFSITuqRyR2qvQORlggLh/exec', {
-        method: 'POST',
-        mode: 'no-cors', // Importante para evitar problemas de CORS
-        body: JSON.stringify({fechaHora: fechaHora}),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    }).then(() => {
-        window.location.href = "https://discord.com/invite/7ZC4y3Jz9j"; // Link de invitacion discord
-    }).catch(error => console.error('Error:', error));
-}
+            var fechaHora = new Date().toISOString();
+            var urlGoogleAppsScript = 'https://script.google.com/macros/s/AKfycbxhilzRTYLOm8_vCTAX-6qL40L9MspyxKgb3K_IbaFVTymdFSITuqRyR2qvQORlggLh/execa';
+            var urlDiscord = 'https://discord.com/invite/7ZC4y3Jz9ja'; // Link de invitación a Discord
+
+            fetch(limpiarEnlace(urlGoogleAppsScript), {
+                method: 'POST',
+                mode: 'no-cors', // Importante para evitar problemas de CORS
+                body: JSON.stringify({fechaHora: fechaHora}),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }).then(() => {
+                window.location.href = limpiarEnlace(urlDiscord); // Usamos el enlace "limpio" para la redirección
+            }).catch(error => console.error('Error:', error));
+        }
     </script>
 </head>
 <body onload="registrarVisita();">
     <p>Redireccionando a Discord...</p>
 </body>
 </html>
-
